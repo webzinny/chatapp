@@ -27,7 +27,7 @@ SECRET_KEY = '*q32qk4j+wg!x%i^*_+=^ehe$2_w64=a2%k_usk$0mi(lp#in#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    'rest_framework',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -70,7 +72,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'chatBackend.wsgi.application'
+#WSGI_APPLICATION = 'chatBackend.wsgi.application'
+ASGI_APPLICATION = 'chatBackend.asgi.application'
+CHANNEL_LAYERS={
+    "default":{
+    "BACKEND": "channels.layers.InMemoryChannelLayer"
+    },
+}
 
 
 # Database
@@ -108,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
