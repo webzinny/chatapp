@@ -7,6 +7,11 @@ class UserAdmin(admin.ModelAdmin):
     'id','name','email','password','date','phone_no'
     ]
 
+class MessageAdmin(admin.ModelAdmin):
+    list_display=[
+    'id','convo','sender','msg','time'
+    ]
+
 class FriendAdmin(admin.ModelAdmin):
     list_display = [
     'id','user1_id','user2_id','status','date'
@@ -38,3 +43,4 @@ admin.site.register(friend_message,friend_messageAdmin)
 admin.site.register(Group,GroupAdmin)
 admin.site.register(Participants,ParticipantsAdmin)
 admin.site.register(group_message,group_messageAdmin)
+admin.site.register(Message,MessageAdmin)

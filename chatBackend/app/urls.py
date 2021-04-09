@@ -2,6 +2,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('index',index),
-    path('json',json),
+    path('validate',validateUser),
+    path('userData',userData),
+    path('msg/<str:convo>',msgData),
 ]
